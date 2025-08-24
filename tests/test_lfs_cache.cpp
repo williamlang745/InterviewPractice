@@ -7,4 +7,15 @@ TEST(CacheTest, put) {
     c.put(2, 2);
     c.put(3, 3);
     c.print();
+    EXIT_SUCCESS;
+}
+
+TEST(CacheTest, put_overflow) {
+    Cache c(3);
+    c.put(1, 1);
+    c.put(2, 2);
+    c.put(3, 3);
+    c.put(4, 4);
+    c.print();
+    EXIT_SUCCESS;
 }

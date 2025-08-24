@@ -16,6 +16,7 @@ Cache::~Cache() {
 }
 
 void Cache::put(int key, int val) {
+
     // check if the element is in the map
     if(auto it = m_map.find(key); it != m_map.end()) {
         // Remove from current location
@@ -32,15 +33,19 @@ void Cache::put(int key, int val) {
         // update val
         m_front->val = val;
     } else {
+
+        bool first_put = m_front == nullptr;
+
         // Create new element and add it to the list
         Node* new_node = new Node(val);
         new_node->next = m_front;
 
         // Is this the first add?
-        if(m_front != nullptr) {
-            m_front->prev = new_node;
+        if(first_put) {
             m_back = new_node;
-        } 
+        } else {
+            m_front->prev = new_node;
+        }
         m_front = new_node;
 
         m_map[key] = new_node;
