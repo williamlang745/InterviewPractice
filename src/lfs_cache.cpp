@@ -22,8 +22,8 @@ void Cache::put(int key, int val) {
         // Remove from current location
         Node* prev = m_map[key]->prev;
         Node* next = m_map[key]->next;
-        next->prev = prev;
-        prev->next = next;
+        if(next != nullptr) next->prev = prev;
+        if(prev != nullptr) prev->next = next;
 
         // Move to front
         m_front->prev = m_map[key];

@@ -30,3 +30,8 @@ add_test(NAME TestAdd COMMAND test_add)
 add_executable(test_multiply tests/test_multiply.cpp)
 target_link_libraries(test_multiply PRIVATE mylib GTest::gtest GTest::gtest_main)
 add_test(NAME TestMultiply COMMAND test_multiply)
+
+# Test for zig_zag.cpp
+add_executable(test_zig_zag tests/test_zig_zag.cpp)
+target_link_libraries(test_zig_zag PRIVATE mylib GTest::gtest GTest::gtest_main)
+add_test(NAME TestZigZag COMMAND test_zig_zag)
