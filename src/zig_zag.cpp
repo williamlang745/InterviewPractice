@@ -45,6 +45,7 @@ string convert(string s, int numRows) {
 }
 
 string convert_rev(std::string s, int numRows) {
+    if(numRows == 1) return s;
     string output = s;
     int s_index = 0;
     int r = 0;
