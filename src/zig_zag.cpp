@@ -43,3 +43,26 @@ string convert(string s, int numRows) {
     }
     return output;
 }
+
+string convert_rev(std::string s, int numRows) {
+    string output = s;
+    int s_index = 0;
+    int r = 0;
+    while(r < numRows) {
+        int i = r;
+        bool down = r == numRows - 1 ? false : true;
+        int u = r * 2;
+        int d = ((numRows - 1) - r) * 2;
+        while(i < s.size() && s_index < s.size()) {
+            output[s_index++] = s[i];
+            if (down) { // Going down
+                i += d;
+            } else { // Going back up
+                i += u;
+            }
+            if(r != numRows - 1 && r != 0) down = !down;
+        }
+        r++;
+    }
+    return output;
+}
